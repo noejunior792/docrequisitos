@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ document.title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ document.title }}</h1>
+    </header>
+    <main>
+        <p>Conteúdo da página do documento.</p>
+        {% if document.location_required %}
+            <p>Localização necessária. <a href="/passaporte">Clique aqui</a> para fornecer a localização.</p>
+        {% endif %}
+    </main>
+</body>
+</html>

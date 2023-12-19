@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Passaporte</title>
+
+    <!-- Adicionar o link para o Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #map-container {
+            height: 400px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Requisitos para o Bilhete de Identidade</h1>
+    </header>
+    <main>
+        <p>Para solicitar o seu passaporte, certifique-se de cumprir os seguintes requisitos:</p>
+        <ul>
+            <li>Documento de identidade válido.</li>
+            <li>Fotografia recente conforme as diretrizes.</li>
+            <li>Comprovante de pagamento da taxa.</li>
+        </ul>
+        
+        <form id="locationForm">
+            <label for="locationName">Nome da Localização:</label>
+            <input type="text" id="locationName" name="locationName" required>
+            <br>
+            <button type="button" onclick="showRoute()">Mostrar Rota</button>
+        </form>
+
+        <div id="map-container"></div>
+    </main>
+
+    <!-- Adicionar os scripts do Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        function showRoute() {
+            const locationName = document.getElementById('locationName').value;
+
+            // Lógica para exibir o mapa com Leaflet
+            const map = L.map('map-container').setView([0, 0], 2); // Coordenadas iniciais e zoom
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            // Lógica para adicionar marcador na localização fornecida
+            const geocoder = L.Control.Geocoder.nominatim();
+            geocoder.geocode(locationName, function(results) {
+                if (results && results.length > 0) {
+                    const latLng = results[0].center;
+                    const marker = L.marker(latLng).addTo(map);
+                    
+                    // Coordenadas de Luanda
+                    const luandaLatLng = [-8.8383, 13.2344];
+
+                    // Criar linha de rota até Luanda
+                    const route = L.polyline([latLng, luandaLatLng], { color: 'blue' }).addTo(map);
+
+                    // Adicionar popup com o nome da localização
+                    marker.bindPopup(locationName).openPopup();
+                    marker.on('click', function() {
+                        route.bindPopup(`Rota até ${locationName}`).openPopup();
+                    });
+
+                    // Ajustar a visualização para os marcadores e rota
+                    const bounds = L.latLngBounds([latLng, luandaLatLng]);
+                    map.fitBounds(bounds);
+                } else {
+                    alert('Não foi possível obter as coordenadas para a localização fornecida.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

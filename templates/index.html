@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>DocRequisitos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='author' content="noejunior299">
+    <link rel='stylesheet' type='text/css' media='screen' href='Style/style.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <script src="Script/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css">
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/all.css">
+</head>
+
+<body>
+ 
+    <nav class="navbar" id="navbar">
+        <label for="menuBar" class="hamburguer" id="hamburguer"></label>
+        <div class="nav_div">
+          <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+          </div>
+          <div style="padding: 0; margin: 10px;" class="logo">
+            DocRequisitos
+          </div>
+    
+    
+        </div>
+    
+        <div class="search-icon">
+          <span class="fas fa-search"></span>
+        </div>
+        <div class="cancel-icon">
+          <span class="fas fa-times"></span>
+        </div>
+    
+        <form action="/search" method="post">
+          <input type="text" name="searchTerm" class="search-data" placeholder="Bilhete de Identidade">
+          <button type="submit" class="fas fa-search"></button>
+        </form>
+    
+    </nav>
+    <div class="first_table">
+        <div class="welcome">
+            <div class="welcome_text">
+                <h1>DocRequisitos</h1>
+                <p style="font-size: 17px;">Explore requisitos de documentos de forma fácil com o DocRequisitos. Encontre informações necessárias para documentos essenciais, como passaportes, de maneira simples. Use a busca rápida e descubra a loja mais próxima para tratar seus documentos. Descomplicamos o processo para você.</p>
+                
+            </div>
+            <div class="welcome_image">
+            <img src="https://img.freepik.com/fotos-premium/jovem-adulto-concentrado-vestindo-terno-escuro-lendo-livro-gostando-de-ler-de-pe-absorvido-com-enredo-emocionante-verificando-a-agenda-no-bloco-de-notas-tiro-de-estudio-interior-isolado-sobre-fundo-azul_416530-21278.jpg">
+            </div>
+        </div>
+    </div>
+
+  <script>
+    const menuBtn = document.querySelector(".menu-icon span");
+    const searchBtn = document.querySelector(".search-icon");
+    const cancelBtn = document.querySelector(".cancel-icon");
+    const items = document.querySelector(".nav-items");
+    const form = document.querySelector("form");
+    menuBtn.onclick = () => {
+      items.classList.add("active");
+      menuBtn.classList.add("hide");
+      searchBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+    }
+    cancelBtn.onclick = () => {
+      items.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      searchBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      form.classList.remove("active");
+      cancelBtn.style.color = "#ff3d00";
+    }
+    searchBtn.onclick = () => {
+      form.classList.add("active");
+      searchBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+    }
+
+
+  </script>
+
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500&family=Dosis:wght@500&display=swap');
+
+/* Criado pelo Noé Júnior Dombaxi Idagi */
+
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #182024;
+    font-family: Dosis, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to bottom, #370b6f, #00429b, #006dba, #0095ce, #2dbcdc 98%, #FFFFFF 63%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media (max-width:700px) {
+    body {
+        background-size: 280% 100%;
+        background-position: 50% 50%;
+    }
+    .jobOportunityTable {
+        background-size: 250% 300% !important;
+        background-position: 50% 50% !important;
+    }
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: unset;
+}
+
+/* Propriedades depois do Scroll */
+
+
+.navbar_scrolled {
+    background-color: #FFF;
+    box-shadow: 0px 4px 10px rgb(0, 0, 0, .1);
+  }
+.navbar_scrolled ul li a {
+    color: black !important;
+}
+.logo-div {
+    background: url(logo-black.png) no-repeat ;
+    background-size: contains,;
+    background-position: 100%;
+    z-index: 10000000 !important;
+}
+.logo--div {
+    opacity: 0;
+}
+
+
+
+/* Propriedades depois do Scroll */
+
+/* Nav Bar */
+
+
+.first_table {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+  
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 100px;
+  }
+
+  .fas-search {
+   display: inline;
+  }
+
+  nav .logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    display: block;
+  }
+
+  nav .nav-items {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+  }
+ 
+  nav form {
+    display: inline;
+    height: 40px;
+    padding: 2px;
+    background: black;
+    min-width: 18% !important;
+    border-radius: 2px;
+    border: 1px solid rgba(155, 155, 155, 0.2);
+    border-radius: 5px;
+  }
+
+  
+  nav form .search-data {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    font-weight: 500;
+    background: none;
+   margin-right: 50px;
+  }
+
+  nav form button {
+    display: inline;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 17px;
+    background: #ff3d00;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  nav form button:hover {
+    background: #e63600;
+  }
+
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon {
+    width: 40px;
+    text-align: center;
+    margin: 0 50px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+  }
+
+  nav .menu-icon span,
+  nav .cancel-icon,
+  nav .search-icon {
+    display: none;
+  }
+
+  @media (max-width: 1245px) {
+    nav {
+      padding: 0 50px;
+    }
+  }
+
+
+.navbar {
+    background: black;
+    display: flex;
+    height: 95px;
+    justify-content: center;
+    align-items: center;
+    flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+    position: fixed ;
+    z-index: 1000000;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.logo_div {
+    flex: 2;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: auto;
+}
+
+@media (min-width:1001px) {
+    .hamburguer {
+        display: none;
+    }
+    .nav_div ul li ul {
+        z-index: 10000;
+        display: none;
+        margin: 0 0;
+        padding: 40px 0;
+        position: absolute;
+        flex-direction: column;
+        color: #182024 !important;
+    }
+}
+
+.nav_div {
+    flex: 7;
+}
+
+.nav_div ul {
+    list-style-type: none;
+    margin-left: 5%;
+    margin-right: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_div ul li {
+    position: relative !important;
+    flex: 1;
+}
+
+.nav_div ul li a{
+    margin-left: 0%;
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.nav_div ul li:focus-within > ul , .nav_div ul li:hover > ul{
+    display: initial;
+}
+
+.nav_div ul li ul li {
+    border-top: 1px solid #8f8f8f;
+    background-color: white;
+    transition:all 0.2s ease;
+}
+.nav_div ul li ul li:hover {
+    background-color: #7b68ee;
+    color: white !important;
+}
+
+
+.nav_div ul li ul li:first-child {
+    border-radius:  5px 5px 0 0;
+}
+.nav_div ul li ul li:last-child {
+    border-radius:  0px 0px 5px 05px;
+}
+
+
+
+.nav_div ul li ul li a {
+    color: #182024;
+    padding: 13.5px 70px;
+    width: max-content !important;
+}
+.nav_div ul li ul li a:hover {
+    color: white;
+}
+
+.nav_div a {
+    display:  block !important;
+}
+
+@media (max-width:1366px){
+    .nav_div ul {
+        margin-left: 7%;
+    }
+}
+@media (max-width:1200px) {
+    .nav_div ul {
+        margin-left: 3% ;
+    }
+    .nav_div ul li a{
+        margin-left: 0.1%;
+    }
+}
+@media (max-width:1px) {
+    .logo-div {
+        background-position: 17% !important;
+    }
+    .navbar {
+        height: 70px;
+    }
+    .logo_div {
+        flex: 4;
+        justify-content: start;
+        max-width: 100% ;
+        height: auto ;
+    }
+    .logo_div img {
+        max-width: 100% !important;
+        height: auto !important;
+        margin-left: 15%;
+    }
+        .hamburguer {
+            margin-top: 4px;
+            margin-right: 15% !important;
+            display: initial !important;
+            background: none !important;
+            border: none !important;
+            border-top: 3px solid white !important;
+            cursor: pointer;
+            width: 30px !important;
+            padding: 0 !important;
+        }
+
+    .newHamburguer {
+        border-top-color: black !important;
+    }
+
+    .hamburguerDiv {
+        display: flex !important;
+        justify-content: center; 
+        flex: 4;
+        width: 10px !important;
+    }
+
+    .hamburguer::before, .hamburguer::after {
+        position: relative;
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #FFF;
+        margin-top: 5px !important;
+        margin: 0;
+        transition:  all 0.4s ease;
+    }
+    .newHamburguer::after, .newHamburguer::before {
+        background-color: black;
+    }
+
+    .nav_div {
+        display: none;
+        z-index: 10001;
+        position: absolute;
+        background-color: #FFF;
+        width: 100%;
+        height: 300px;
+        overflow: auto;
+        top: 70px ;left: 0; right: 0;
+        border-top: 1px solid rgb(0, 0, 0, .1);
+    }
+
+    .nav_div ul {
+        flex-direction: column;
+        padding-left: 4%;
+    }
+
+    .nav_div a {
+        color: #182024 !important;
+        width: 100% !important;
+        padding: 2.5% 0 2.5% 0;
+    }
+
+    .nav_div ul li {
+        width: 100% !important;
+        border-top: 1px solid #8f8f8f;
+    }
+    .nav_div ul li ul {
+        display: none;
+    }
+    .nav_div ul li:nth-child(1) {
+        border-top: none;
+    }
+    .nav_div ul li ul li {
+        background-color: #f1f1f1;
+        width: 96.5% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .nav_div ul li ul li a {
+        width: 90% !important;
+        padding: 9px 0px;
+        padding-left: 25px;
+    }
+    #menuBar:checked ~ .nav_div {
+        display: initial;
+    }
+    #menuBar:checked ~ .hamburguer{
+        border-top-color: transparent !important;
+    }
+    #menuBar:checked ~ .hamburguer::after {
+        transform: rotate(135deg);
+        top: -8px;
+    }
+    #menuBar:checked ~ .hamburguer::before {
+        transform: rotate(-135deg);
+    }
+    .getItSupport {
+        display: none;
+    }
+}
+
+
+
+/* Nav Bar */
+
+
+/* Welcome Table */
+
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8em;
+    margin-left: 4%;
+    width: 85%;
+}
+
+@media (max-width:950px) {
+    .welcome {
+        flex-direction: column !important;
+        margin-top: 8em;
+    }
+    .welcome_text {
+        text-align: center;
+    }
+}
+
+.welcome_text {
+    color: white;
+    flex: 1;
+    margin-bottom: 6%;
+    z-index: 1000;
+    flex-basis: 50%;
+    max-width: 99%;
+    height: auto;
+}
+
+.welcome_text h1 {
+    font-size: 54px;
+    width: 90%;
+    margin: 0 0 5% 12%;
+}
+
+.welcome_text p {
+    width: 90%;
+    margin: 0 0 8% 12%;
+    line-height: 1.7;
+}
+
+.welcome_btn {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 500;
+    margin-left: 5%;
+    z-index: 1000;
+}
+
+@media (max-width:550px) {
+    .welcome_btn {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contact_us_btn, .our_services_btn{
+        margin: 2% !important;
+    }
+    .welcome_text h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width:450px) {
+    .jobOportunityTable {
+        background-size: 350% 200% !important;
+    }
+    .welcome_text h1{
+        font-size: 35px;
+    }
+}
+
+.our_services_btn {
+    max-width: 99%;
+    height: auto;
+    z-index: 1000;
+    color: #8d75f5;
+    background-color: white;
+    padding: 13px 30px;
+    border-radius: 5px;
+    transition:all 0.65s ease;
+}
+.our_services_btn:hover {
+    color: white;
+    background-color: hsl(251, 74%, 59%);
+}
+
+.contact_us_btn {
+    max-width: 99%;
+    height: auto;
+    z-index: 1000;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6447e4;
+    color: white;
+    padding: 13px 30px;
+    margin-left: -20%;
+    transition: all 0.65s ease;
+}
+.contact_us_btn:hover {
+    color: #6447e4;
+    background-color: #FFFFFF;
+}
+
+.welcome_image {
+    flex: 1 1;
+    margin-left: 4%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 45%;
+}
+
+.welcome_image img {
+    max-width: 99%;
+    height: auto;
+}
+
+.home_bottom_shape {
+    width: 100%;
+    margin-top: -16.5%;
+    z-index: -1;
+}
+
+</style>
+
+</body>
+
+</html>
